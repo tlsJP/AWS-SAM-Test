@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hello-world
+        working-directory: hello-world
 
     strategy:
       matrix:
@@ -29,7 +29,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: hello-world/package-lock.json
+        cache-dependency-path: '**/package-lock.json'
     - name: Install
       run: npm ci
     - name: Build
